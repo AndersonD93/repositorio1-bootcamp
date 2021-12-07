@@ -17,7 +17,7 @@ public class practica_semana_3 {
 	        } while (numAlum <= 0);
 	        
 	        //se  crea array solicitando el nombre de los alumnos
-	  /**/  String[]nomalumn=new String[numAlum];
+	        String[]nomalumn=new String[numAlum];
 	  		for (i=0;i<nomalumn.length;i++) {
 	  			System.out.print("Ingrese el Nombre del Alumno No"+(i+1)+". :");
 	  			nomalumn[i]=teclado.next();
