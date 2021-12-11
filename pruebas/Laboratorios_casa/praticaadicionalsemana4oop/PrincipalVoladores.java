@@ -22,7 +22,7 @@ public class PrincipalVoladores {
 				atr.aterriza();
 				System.out.println("-------------------------------\n");		
 				}else {
-					System.out.println("El "+ vo +" no puede aterrizar dado no cumple con los requerimientos...");
+					System.out.println("El "+ vo.getNombre() +" no puede aterrizar dado no cumple con los requerimientos...");
 					System.out.println("-------------------------------\n");
 				}
 				
