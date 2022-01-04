@@ -2,16 +2,15 @@ package ar.com.educacionit.dao.impl;
 
 import ar.com.educacionit.domain.Socios;
 
-public interface SociosDao {
-	
-	public Socios getOne(Long id);
+public interface SociosDao extends GenericDao<Socios> {
 
-	public Socios save(Socios entity);
+	/*public Socios getOne(Long id);
 	
 	public void delete(Long id);
 	
-	public void uptate (Socios entity);
+	public Socios save(Socios entity);
 	
-	public Socios[] findAll();
-
+	public void update(Socios entity);
+	
+	public Socios[] findAll();*/
 }
