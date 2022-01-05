@@ -7,17 +7,14 @@ public class Users {
 	private String password;
 	
 	private Socios socio;
-	
-	//Constructor
 
-	public Users(Long id, String username, String password, Socios socio) {
+	public Users(Long id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.socio = socio;
 	}
-	//Get y Set
+
 	public Long getId() {
 		return id;
 	}
@@ -49,12 +46,11 @@ public class Users {
 	public void setSocio(Socios socio) {
 		this.socio = socio;
 	}
-	//metodo to String[]
 
 	@Override
 	public String toString() {
 		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", socio=" + socio + "]";
 	}
-
+	
 	
 }

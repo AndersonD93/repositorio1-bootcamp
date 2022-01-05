@@ -1,4 +1,3 @@
-
 package ar.com.educacionit.domain;
 
 import java.util.Date;

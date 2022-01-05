@@ -1,4 +1,4 @@
-package ar.com.educacionit.dao.impl;
+package ar.com.educationit.dao;
 
 import ar.com.educacionit.domain.Categorias;
 

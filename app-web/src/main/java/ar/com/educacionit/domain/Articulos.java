@@ -3,6 +3,7 @@ package ar.com.educacionit.domain;
 import java.util.Date;
 
 public class Articulos {
+
 	private Long id;
 	private String titulo;
 	private Date fechaCreacion;
@@ -10,25 +11,25 @@ public class Articulos {
 	private Double precio;
 	private Integer stock;
 	private Long marcaId;
-	private Long cartegoriaId;
+	//private Marcas marca;
+	private Long categoriaId;
+	private Categorias categoria;
 	
 	//hacia la db
 	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock, Long marcaId,
-			Long cartegoriaId) {
-		super();
+			Long categoriaId) {
 		this.titulo = titulo;
 		this.fechaCreacion = fechaCreacion;
 		this.codigo = codigo;
 		this.precio = precio;
 		this.stock = stock;
 		this.marcaId = marcaId;
-		this.cartegoriaId = cartegoriaId;
+		this.categoriaId = categoriaId;
 	}
-	
-	//desde la db
+
+	// desde la db
 	public Articulos(Long id, String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock,
-			Long marcaId, Long cartegoriaId) {
-		super();
+			Long marcaId, Long categoriaId) {
 		this.id = id;
 		this.titulo = titulo;
 		this.fechaCreacion = fechaCreacion;
@@ -36,18 +37,35 @@ public class Articulos {
 		this.precio = precio;
 		this.stock = stock;
 		this.marcaId = marcaId;
-		this.cartegoriaId = cartegoriaId;
+		this.categoriaId = categoriaId;
 	}
-	
 	//constructor
-	//alt+siht+s (crearlo field)
+	//alt+shift+s
 	
-	public Double getprecio() {
+	public Double getPrecio() {
 		return this.precio;
 	}
 	
-	public String getprecio(String pattern) {
+	public String getPrecio(String pattern) {
+		//##,###.00
 		return this.precio.toString();
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getTitulo(boolean isUpperCase) {
+		if(isUpperCase) {
+			return this.titulo.toUpperCase();
+		}else {
+			return this.titulo;
+		}
+	}
+	
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Date getFechaCreacion() {
@@ -66,12 +84,33 @@ public class Articulos {
 		this.codigo = codigo;
 	}
 
-	public Long getCartegoriaId() {
-		return cartegoriaId;
+	public Integer getStock() {
+		return stock;
 	}
 
-	public void setCartegoriaId(Long cartegoriaId) {
-		this.cartegoriaId = cartegoriaId;
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
+
+	public Long getMarcaId() {
+		return marcaId;
+	}
+
+	public void setMarcaId(Long marcaId) {
+		this.marcaId = marcaId;
+	}
+
+	public Long getCategoriaId() {
+		return categoriaId;
+	}
+
+	public void setCategoriaId(Long categoriaId) {
+		this.categoriaId = categoriaId;
+	}
+
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getId() {
@@ -82,24 +121,13 @@ public class Articulos {
 		this.precio = precio;
 	}
 
-
-	public String getTitulo(boolean isUpperCase) {
-		if(isUpperCase) {
-			return this.titulo.toUpperCase();
-		}else {
-			return this.titulo;
-		}
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	@Override
 	public String toString() {
 		return "Articulo [id=" + id + ", titulo=" + titulo + ", fechaCreacion=" + fechaCreacion + ", codigo=" + codigo
-				+ ", precio=" + precio + ", stock=" + stock + ", marcaId=" + marcaId + ", cartegoriaId=" + cartegoriaId
+				+ ", precio=" + precio + ", stock=" + stock + ", marcaId=" + marcaId + ", categoriaId=" + categoriaId
 				+ "]";
 	}
 	
+	//get/set
+	//toString
 	
 }

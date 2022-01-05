@@ -1,7 +1,6 @@
 package ar.com.educacionit.services.impl;
 
-
-import ar.com.educacionit.dao.impl.GenericDao;
+import ar.com.educationit.dao.GenericDao;
 import ar.com.educacionit.services.GenericService;
 
 public class AbstractBaseService<T> implements GenericService<T>{
