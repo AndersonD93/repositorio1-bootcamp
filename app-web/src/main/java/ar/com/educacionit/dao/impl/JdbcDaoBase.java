@@ -5,7 +5,6 @@ import ar.com.educationit.dao.GenericDao;
 import ar.com.educacionit.domain.Entity;
 
 
-
 /**
  * Las T son entidades que repesentan tablas, por ende van a heredar de Entity
  * @author LopezCar
