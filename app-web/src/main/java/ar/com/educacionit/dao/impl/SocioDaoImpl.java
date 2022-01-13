@@ -1,12 +1,29 @@
 package ar.com.educacionit.dao.impl;
 
-import ar.com.educationit.dao.SociosDao;
+import ar.com.educacionit.dao.SociosDao;
 import ar.com.educacionit.domain.Socios;
 
 public class SocioDaoImpl extends JdbcDaoBase<Socios> implements SociosDao{
 
 	public SocioDaoImpl() {
 		super("socios");//es la tabla
+	}
+	
+	@Override
+	public String getSaveSQL(Socios socios) {
+		return ("(nombre,apellido,email,direccion, paises_id) values("+socios.getNombre()+","+socios.getApellido()+","+
+				socios.getEmail()+","+socios.getDireccion()+","+socios.getPaisesId()+")");
+	}
+	
+	@Override
+	public String getUpdateSQL(Socios socios) {
+		String sql = "nombre='"+socios.getNombre()+"',";
+		sql = sql + "apellido='"+socios.getApellido()+"',";
+		sql = sql + "email='"+socios.getEmail()+"',";
+		if(socios.getPaisesId() !=null) {
+			sql = sql + "paises_id='"+socios.getPaisesId()+"'";
+		}
+		return sql;
 	}
 	
 	/*
