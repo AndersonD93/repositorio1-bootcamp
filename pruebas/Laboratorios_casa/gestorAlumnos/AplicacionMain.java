@@ -23,7 +23,7 @@ public class AplicacionMain {
 			int opcionCrud=teclado.nextInt();
 			
 			if (opcionCrud==1) {
-				icrud.create();	
+				icrud.create(teclado);	
 			}if (opcionCrud==2) {
 				icrud.read();
 			}if (opcionCrud==3) {

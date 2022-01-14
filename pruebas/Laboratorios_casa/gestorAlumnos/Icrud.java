@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 public class Icrud {
 	
-	static Scanner teclado = new Scanner(System.in);
+	//static Scanner teclado = new Scanner(System.in);
 	
-	public void create() {	
+	public void create(Scanner teclado) {	
 		System.out.println("ingrese la cantidad de estudiantes a inscribir :");
 		int cantidadAInscribir=teclado.nextInt();
+		Alumnos vector= null;
+		
+		
 		
 		Alumnos inscripcionAlumnos[] = new Alumnos[cantidadAInscribir];
 		
@@ -23,12 +26,11 @@ public class Icrud {
 			System.out.print("Digite el numero de la matricula : ");
 			int matricula =teclado.nextInt();
 			
-			Alumnos vector=new Alumnos(id, matricula, nombre, apellido);
+			vector=new Alumnos(id, matricula, nombre, apellido);
 			inscripcionAlumnos[i]=vector;
 			
 			System.out.println("--------------------------------------");
 			System.out.println("Alumno agregado "+ vector);
-			
 		}
 		
 	};
