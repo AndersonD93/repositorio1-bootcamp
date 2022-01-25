@@ -2,20 +2,23 @@ package gestorAlumnos;
 
 public class Materias {
 	
-	protected int idMateria;
-	protected String NombreMateria;
-	protected String turno;
+	private int idMateria;
+	private String NombreMateria;
+	private String turno;
 	
 	
 	public Materias(int idMateria, String nombreMateria, String turno) {
-		super();
 		this.idMateria = idMateria;
 		NombreMateria = nombreMateria;
 		this.turno = turno;
 	}
+	
+	public Materias(int idMateria) {
+		this.idMateria=idMateria;
+	}
 
 
-	public int getIdMateria() {
+	public Integer getIdMateria() {
 		return idMateria;
 	}
 

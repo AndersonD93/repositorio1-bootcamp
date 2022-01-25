@@ -1,29 +1,32 @@
 package gestorAlumnos;
 
 public class Alumnos {
-	protected static int matricula;
-	protected static String nombre;
-	protected static String apellido;
-	protected static int id;
+	private int matricula;
+	private String nombre;
+	private String apellido;
+	private Integer id;
 	
 	
 	public Alumnos(int id, int matricula, String nombre, String apellido) {
-		super();
 		this.matricula = matricula;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.id = id;
 		
 	}
+	public Alumnos(int id) {
+		this.id = id;
+		
+	}
 
 
-	public static int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public static void setId(int id) {
-		Alumnos.id = id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
