@@ -19,7 +19,7 @@ public class SocioDaoImpl extends JdbcDaoBase<Socios> implements SociosDao{
 	}
 	
 	@Override
-	protected void save(PreparedStatement st, Socios entity) throws SQLException {
+	public void save(PreparedStatement st, Socios entity) throws SQLException {
 		st.setString(1,entity.getNombre());
 		st.setString(2, entity.getApellido());
 		st.setString(3, entity.getEmail());
@@ -34,7 +34,7 @@ public class SocioDaoImpl extends JdbcDaoBase<Socios> implements SociosDao{
 	}
 
 	@Override
-	protected void update(PreparedStatement st, Socios entity) throws SQLException {
+	public void update(PreparedStatement st, Socios entity) throws SQLException {
 		st.setString(1,entity.getNombre());
 		st.setString(2,entity.getApellido());
 		st.setString(3,entity.getEmail());

@@ -17,7 +17,7 @@ public class CategoriaDaoImpl extends JdbcDaoBase<Categorias> implements Categor
 		return ("(descripcion,codigo,habilitada) values(?,?,?)");
 	}
 	
-	protected void save(PreparedStatement st, Categorias entity) throws SQLException {
+	public void save(PreparedStatement st, Categorias entity) throws SQLException {
 		//inser insto categorias (
 		st.setString(1, entity.getDescripcion());
 		st.setString(2, entity.getCodigo());
@@ -30,7 +30,7 @@ public class CategoriaDaoImpl extends JdbcDaoBase<Categorias> implements Categor
 	}
 
 	@Override
-	protected void update(PreparedStatement st, Categorias entity) throws SQLException {
+	public void update(PreparedStatement st, Categorias entity) throws SQLException {
 		st.setString(1,entity.getDescripcion());
 		st.setLong(2,entity.getHabilitada());
 	}

@@ -2,8 +2,9 @@ package ar.com.educacionit.domain;
 
 import java.util.Date;
 
-public class Articulos {
-
+public class Articulos implements Entity {
+	
+	//atributos
 	private Long id;
 	private String titulo;
 	private Date fechaCreacion;
@@ -13,9 +14,12 @@ public class Articulos {
 	private Long marcaId;
 	//private Marcas marca;
 	private Long categoriaId;
-	private Categorias categoria;
+	private Categorias categorias;
 	
-	//hacia la db
+	//constructor 
+	//alt+shift+s
+	
+	// hacia la db
 	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock, Long marcaId,
 			Long categoriaId) {
 		this.titulo = titulo;
@@ -26,7 +30,7 @@ public class Articulos {
 		this.marcaId = marcaId;
 		this.categoriaId = categoriaId;
 	}
-
+	
 	// desde la db
 	public Articulos(Long id, String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock,
 			Long marcaId, Long categoriaId) {
@@ -39,9 +43,16 @@ public class Articulos {
 		this.marcaId = marcaId;
 		this.categoriaId = categoriaId;
 	}
-	//constructor
-	//alt+shift+s
 	
+	
+	// metodos
+
+	public Articulos(Long id, String titulo, Double precio) {
+		this.id = id;
+		this.titulo = titulo;
+		this.precio = precio;
+	}
+
 	public Double getPrecio() {
 		return this.precio;
 	}
@@ -54,16 +65,15 @@ public class Articulos {
 	public String getTitulo() {
 		return titulo;
 	}
-
-	public String getTitulo(boolean isUpperCase) {
-		if(isUpperCase) {
+	
+	public String getTitulo(Boolean isUpperCase) {
+		if (isUpperCase) {
 			return this.titulo.toUpperCase();
 		}else {
 			return this.titulo;
 		}
 	}
-	
-	
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -108,13 +118,12 @@ public class Articulos {
 		this.categoriaId = categoriaId;
 	}
 
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setPrecio(Double precio) {
@@ -127,7 +136,6 @@ public class Articulos {
 				+ "]";
 	}
 	
-	//get/set
-	//toString
 	
+
 }

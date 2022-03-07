@@ -1,5 +1,9 @@
 package ar.com.educacionit.dao;
 
-public interface ArticuloDao {
+import ar.com.educacionit.domain.Articulos;
 
+public interface ArticulosDao extends GenericDao<Articulos>{
+	
+	
+	
 }

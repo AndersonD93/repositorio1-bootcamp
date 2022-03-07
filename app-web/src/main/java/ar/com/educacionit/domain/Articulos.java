@@ -2,21 +2,21 @@ package ar.com.educacionit.domain;
 
 import java.util.Date;
 
-public class Articulos {
+public class Articulos implements Entity {
 
 	private Long id;
 	private String titulo;
 	private Date fechaCreacion;
 	private String codigo;
 	private Double precio;
-	private Integer stock;
+	private Long stock;
 	private Long marcaId;
-	//private Marcas marca;
+	// private Marcas marca;
 	private Long categoriaId;
 	private Categorias categoria;
-	
-	//hacia la db
-	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock, Long marcaId,
+
+	// hacia la db
+	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Long stock, Long marcaId,
 			Long categoriaId) {
 		this.titulo = titulo;
 		this.fechaCreacion = fechaCreacion;
@@ -28,7 +28,7 @@ public class Articulos {
 	}
 
 	// desde la db
-	public Articulos(Long id, String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock,
+	public Articulos(Long id, String titulo, Date fechaCreacion, String codigo, Double precio, Long stock,
 			Long marcaId, Long categoriaId) {
 		this.id = id;
 		this.titulo = titulo;
@@ -39,15 +39,24 @@ public class Articulos {
 		this.marcaId = marcaId;
 		this.categoriaId = categoriaId;
 	}
-	//constructor
-	//alt+shift+s
-	
+	// constructor
+	// alt+shift+s
+
+	public Articulos(Long id, String titulo, Double precio) {
+		this.id = id;
+		this.titulo = titulo;
+		this.precio = precio;
+	}
+
+	public Articulos() {
+	}
+
 	public Double getPrecio() {
 		return this.precio;
 	}
-	
+
 	public String getPrecio(String pattern) {
-		//##,###.00
+		// ##,###.00
 		return this.precio.toString();
 	}
 
@@ -56,14 +65,13 @@ public class Articulos {
 	}
 
 	public String getTitulo(boolean isUpperCase) {
-		if(isUpperCase) {
+		if (isUpperCase) {
 			return this.titulo.toUpperCase();
-		}else {
+		} else {
 			return this.titulo;
 		}
 	}
-	
-	
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -84,11 +92,11 @@ public class Articulos {
 		this.codigo = codigo;
 	}
 
-	public Integer getStock() {
+	public Long getStock() {
 		return stock;
 	}
 
-	public void setStock(Integer stock) {
+	public void setStock(Long stock) {
 		this.stock = stock;
 	}
 
@@ -108,7 +116,6 @@ public class Articulos {
 		this.categoriaId = categoriaId;
 	}
 
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -126,8 +133,8 @@ public class Articulos {
 				+ ", precio=" + precio + ", stock=" + stock + ", marcaId=" + marcaId + ", categoriaId=" + categoriaId
 				+ "]";
 	}
-	
-	//get/set
-	//toString
-	
+
+	// get/set
+	// toString
+
 }
