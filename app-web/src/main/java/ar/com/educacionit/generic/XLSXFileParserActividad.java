@@ -18,9 +18,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import ar.com.educacionit.domain.Articulos;
 
-public class XLSFileParser extends BaseFile implements IFileParser<Collection<Articulos>> {
+public class XLSXFileParserActividad extends BaseFile implements IFileParser<Collection<Articulos>> {
 
-	public XLSFileParser(String path) {
+	public XLSXFileParserActividad(String path) {
 		super(path);
 	}
 
@@ -39,7 +39,9 @@ public class XLSFileParser extends BaseFile implements IFileParser<Collection<Ar
 		try (InputStream xlsxFileInputStream= new FileInputStream(xlsxFile);
 				Workbook workbook = new XSSFWorkbook(xlsxFileInputStream)){
 		
+			// ver y luego tomar la cantidad de hojas y empezar a iterar
 			
+			workbook.getActiveSheetIndex(); //metodo para obtener las hojas activas
 			Sheet hojas = workbook.getSheetAt(0);
 		//collection
 			
