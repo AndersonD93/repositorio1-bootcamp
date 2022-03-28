@@ -5,6 +5,6 @@ import ar.com.educacionit.domain.Users;
 
 public interface UserDao {
 	
-	public Users gerUserByUserName(String username ) throws GenericException ;
+	public Users getUserByUserName(String username ) throws GenericException ;
 
 }

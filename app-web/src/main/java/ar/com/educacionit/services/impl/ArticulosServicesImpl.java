@@ -4,12 +4,12 @@ import ar.com.educacionit.dao.impl.ArticulosDaoImpl;
 import ar.com.educacionit.dao.impl.SocioDaoImpl;
 import ar.com.educacionit.domain.Articulos;
 import ar.com.educacionit.domain.Socios;
-import ar.com.educacionit.services.ArticulosService;
+import ar.com.educacionit.services.ArticulosServices;
 import ar.com.educacionit.services.SociosService;
 
-public class ArticulosServiceImpl extends AbstractBaseService<Articulos> implements ArticulosService {
+public class ArticulosServicesImpl extends AbstractBaseService<Articulos> implements ArticulosServices {
 
-	public ArticulosServiceImpl() {
+	public ArticulosServicesImpl() {
 		super(new ArticulosDaoImpl());
 	}
 	

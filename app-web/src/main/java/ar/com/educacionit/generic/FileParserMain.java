@@ -5,7 +5,7 @@ import java.util.Collection;
 
 import ar.com.educacionit.domain.Articulos;
 import ar.com.educacionit.services.exceptions.ServiceException;
-import ar.com.educacionit.services.impl.ArticulosServiceImpl;
+import ar.com.educacionit.services.impl.ArticulosServicesImpl;
 
 public class FileParserMain {
 
@@ -25,7 +25,7 @@ public class FileParserMain {
 		if(!articulos.isEmpty()) {
 			try {
 				//grabar en la db
-				ArticulosServiceImpl service = new ArticulosServiceImpl();
+				ArticulosServicesImpl service = new ArticulosServicesImpl();
 				for(Articulos unArticulo : articulos) {
 					service.save(unArticulo);
 				}

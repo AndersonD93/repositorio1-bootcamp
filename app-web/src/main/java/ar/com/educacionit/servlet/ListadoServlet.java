@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ar.com.educacionit.domain.Articulos;
-import ar.com.educacionit.services.ArticulosService;
+import ar.com.educacionit.services.ArticulosServices;
 import ar.com.educacionit.services.exceptions.ServiceException;
-import ar.com.educacionit.services.impl.ArticulosServiceImpl;
+import ar.com.educacionit.services.impl.ArticulosServicesImpl;
 
 /*
  * Los servlet no tienen metodo main, porque no son
@@ -33,7 +33,7 @@ public class ListadoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// que hago : instacion ArticuloService
-		ArticulosService articuloService = new ArticulosServiceImpl();
+		ArticulosServices articuloService = new ArticulosServicesImpl();
 		try {
 			List<Articulos>articulos=articuloService.findAll();
 		

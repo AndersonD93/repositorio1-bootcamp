@@ -3,9 +3,9 @@ package ar.com.educacionit.generic;
 import java.util.Collection;
 
 import ar.com.educacionit.domain.Articulos;
-import ar.com.educacionit.services.ArticulosService;
+import ar.com.educacionit.services.ArticulosServices;
 import ar.com.educacionit.services.exceptions.ServiceException;
-import ar.com.educacionit.services.impl.ArticulosServiceImpl;
+import ar.com.educacionit.services.impl.ArticulosServicesImpl;
 
 public class TestXLSXParserAndInsert {
 
@@ -20,7 +20,7 @@ public class TestXLSXParserAndInsert {
 		//insertarlo a base de datos
 		
 		//1- creo el service asociado a articulos
-		ArticulosService as = new ArticulosServiceImpl();
+		ArticulosServices as = new ArticulosServicesImpl();
 		
 		for(Articulos unArticulo:articulos) {
 			//2. ejecuto el metodo save:save
