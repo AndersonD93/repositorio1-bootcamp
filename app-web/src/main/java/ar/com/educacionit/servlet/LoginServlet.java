@@ -12,7 +12,7 @@ import ar.com.educacionit.domain.Users;
 import ar.com.educacionit.services.LoginService;
 import ar.com.educacionit.services.exceptions.ServiceException;
 import ar.com.educacionit.services.impl.LoginServiceImpl;
-import ar.com.educacionit.web.enums.LoginViewEnum;
+import ar.com.educacionit.web.enums.ViewKeysEnum;
 import ar.com.educacionit.web.enums.ViewEnums;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
@@ -23,8 +23,8 @@ public class LoginServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//capturo los parametros enviados por el html/jsp
-		String usernameFromHtml = req.getParameter(LoginViewEnum.USERNAME.getParam());
-		String passwordFromHtml = req.getParameter(LoginViewEnum.PASSWORD.getParam());
+		String usernameFromHtml = req.getParameter(ViewKeysEnum.USERNAME.getParam());
+		String passwordFromHtml = req.getParameter(ViewKeysEnum.PASSWORD.getParam());
 		
 		//LOGIN SERVICE
 		LoginService ls = new LoginServiceImpl();

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Palette+Mosaic&display=swap');
+head{background-color:red ;
+    color:black;
+    font-family: 'Palette Mosaic', cursive;
+}
+
+h1,h2 {color:red;
+font-size: 3em;
+font-family: 'Palette Mosaic', cursive;}    
+p{color: pink;
+   font-size: 18px; }
+
+/*h2{color:red}*/
+
+ul li{color:orange}
+
+h1 strong {color: yellow;}
+
+strong{color: black;
+background-color: aquamarine;}
+
+body{font-family: 'Hurricane', cursive;}
