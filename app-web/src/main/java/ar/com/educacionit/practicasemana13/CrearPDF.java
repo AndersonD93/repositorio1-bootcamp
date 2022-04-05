@@ -13,7 +13,7 @@ import ar.com.educacionit.domain.Articulos;
 
 public class CrearPDF {
 	
-	private String path;
+	private String path ;
 
 	public CrearPDF(String path) {
 		super();
