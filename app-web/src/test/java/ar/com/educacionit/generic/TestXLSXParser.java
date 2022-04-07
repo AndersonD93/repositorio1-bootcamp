@@ -1,17 +1,18 @@
+
 package ar.com.educacionit.generic;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import ar.com.educacionit.domain.Articulos;
 
 public class TestXLSXParser {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws IOException {
 		
-		String path = "./src/test/java/articulos.xlsx";
-						///./src/test/java/articulos.xlsx
-		IFileParser<Collection<Articulos>> xlsxParser = new XLSFileParser(path); 
+		String path = "./src/test/java/ar/com/educacionit/generic/articulos.xlsx";
+		
+		IParser<Collection<Articulos>> xlsxParser = new XLSXFileParser(path); 
 
 		try {
 			Collection<Articulos> articulos = xlsxParser.parse();			

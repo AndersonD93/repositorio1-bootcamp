@@ -14,38 +14,39 @@ import ar.com.educacionit.services.ArticulosServices;
 import ar.com.educacionit.services.exceptions.ServiceException;
 import ar.com.educacionit.services.impl.ArticulosServicesImpl;
 
-/*
- * Los servlet no tienen metodo main, porque no son
- * tipo consoloa , sino web
- * */
-
-@WebServlet("/ListadoServlet")
+/**
+ * los servlet no tienen el metodo main, porque no son de tipo
+ * consola, sino web
+ *
+ */
+@WebServlet("/controllers/ListadoServlet")
 public class ListadoServlet extends HttpServlet {
 
-	@Override
-	//HACE LAS VECES DEL METODO MAIN EN CONSOLA
+	@Override	
 	protected void doPost(HttpServletRequest entrada, HttpServletResponse salida) throws ServletException, IOException {
-	System.out.println("Llegue al servlet / listado que escucha atiendo por POST");
-	salida.getWriter().print("Hola frontend, soy el back te escucho y respondo tu request");
+		System.out.println("llegue al servlet /listado que escucha y atiende por POST");
+		salida.getWriter().print("hola frontend, soy el backend y atendi tu solictud POR POST");
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// que hago : instacion ArticuloService
-		ArticulosServices articuloService = new ArticulosServicesImpl();
-		try {
-			List<Articulos>articulos=articuloService.findAll();
+		//que hago acá: instancio ArticuloService 
 		
-			// guardar el listado en un lugar llamado "request de la otra pagina"
+		ArticulosServices articuloService = new ArticulosServicesImpl();
+		
+		try {
+			List<Articulos> articulos = articuloService.findAll();
+			
+			//guardar el listado en un lugar llamado "request"
+			
 			request.setAttribute("LISTADO", articulos);
 			
-			// AHORA ANDE A LA OTRA PAGINA Y PASA LA LISTA DE ARTICULOS
-			getServletContext().getRequestDispatcher("/listado.jsp").forward(request, response);
+			//AHORA "anda" a la otra pagina y pasale la lista de artiuclos
 			
+			getServletContext().getRequestDispatcher("/listado.jsp").forward(request, response);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
 	}
 }
-

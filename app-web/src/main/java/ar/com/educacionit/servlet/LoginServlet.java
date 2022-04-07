@@ -26,34 +26,45 @@ public class LoginServlet extends HttpServlet{
 		String usernameFromHtml = req.getParameter(ViewKeysEnum.USERNAME.getParam());
 		String passwordFromHtml = req.getParameter(ViewKeysEnum.PASSWORD.getParam());
 		
-		//LOGIN SERVICE
-		LoginService ls = new LoginServiceImpl();
-		
 		ViewEnums target = ViewEnums.LOGIN_SUCCESS;
 		
-		Users user;
+		//validaciones (mejorar sacando a un metodo a parte)
+		if(isValid(usernameFromHtml, passwordFromHtml)) {
 		
-		try {
-			user = ls.getUserByUserNameAndPassword(usernameFromHtml,passwordFromHtml);
-		
-			if(user == null) {
-				
-				//login.jsp con algun mensaje de error
-				target = ViewEnums.LOGIN;				
-			}else {
-				//request
-				//req.setAttribute("usuario", user);
-				
-				//session
-				req.getSession().setAttribute("usuario", user);
-			}
+			//LOGIN SERVICE
+			LoginService ls = new LoginServiceImpl();
 			
-		} catch (ServiceException e) {			
-			e.printStackTrace();
-			target = ViewEnums.ERROR_GENERAL;
+			Users user;
+			
+			try {
+				user = ls.getUserByUserNameAndPassword(usernameFromHtml,passwordFromHtml);
+			
+				if(user == null) {
+					//guardar en el request
+					req.setAttribute(ViewKeysEnum.ERROR_GENERAL.getParam(), ViewKeysEnum.USUARIO_PASSWORD_INVALIDO.getParam());
+					target = ViewEnums.LOGIN;				
+				}else {
+					//session
+					req.getSession().setAttribute(ViewKeysEnum.USER.getParam(), user);
+				}
+			} catch (ServiceException e) {			
+				//crear una tabla de mapeo de errores clave - valor
+				req.setAttribute(ViewKeysEnum.ERROR_GENERAL.getParam(), e.getMessage());
+				target = ViewEnums.LOGIN;//ctrl+shit+i
+			}
+		}else {
+			//guardar en el request
+			req.setAttribute(ViewKeysEnum.ERROR_GENERAL.getParam(), ViewKeysEnum.USUARIO_PASSWORD_INVALIDO.getParam());
+			target  = ViewEnums.LOGIN;
 		}
 		
 		// ir a target
 		getServletContext().getRequestDispatcher(target.getView()).forward(req, resp);
+	}
+
+	protected boolean isValid(String usernameFromHtml, String passwordFromHtml) {
+		return (usernameFromHtml !=null && !usernameFromHtml.isBlank()) 
+				&&
+				(passwordFromHtml !=null && !passwordFromHtml.isBlank());
 	}
 }

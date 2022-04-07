@@ -1,38 +1,33 @@
 package ar.com.educacionit.generic;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Collection;
 
 import ar.com.educacionit.domain.Articulos;
-import ar.com.educacionit.services.exceptions.ServiceException;
-import ar.com.educacionit.services.impl.ArticulosServicesImpl;
 
 public class FileParserMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
-		String path ="./src/main/java/ar/com/educacionit/generic/articulo.csv";
+		String path = "C:\\desarrollo\\articulos.csv";
 		
-		IFileParser<Collection<Articulos>> parser = new CSVFileParser(path);
+		IParser<Collection<Articulos>> parser = new CSVFileParser(path);
 		
-		Collection<Articulos> articulos = new ArrayList<>();
+		int cantidadRegistro = 0;
+		Double precioTotal = 0d;
 		try {
-			articulos = parser.parse();
+			Collection<Articulos> articulos = parser.parse();
+			cantidadRegistro = articulos.size();
+			
+			for(Articulos articulo : articulos) {
+				System.out.println(articulo);
+				precioTotal = precioTotal + articulo.getPrecio();
+			}
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
-		if(!articulos.isEmpty()) {
-			try {
-				//grabar en la db
-				ArticulosServicesImpl service = new ArticulosServicesImpl();
-				for(Articulos unArticulo : articulos) {
-					service.save(unArticulo);
-				}
-			} catch (ServiceException e) {
-				e.printStackTrace();
-			}
-		}
+		System.out.println("Cantidad procesados:" + cantidadRegistro);
+		System.out.println("Precio Total:" + precioTotal);
 	}
 
 }

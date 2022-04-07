@@ -2,38 +2,34 @@
 <%@page import="java.util.List"%>
 
 <html>
+	
 	<head>
+	
 	</head>
 	
 	<body>
-	
-	<!-- Quiero capturar el listado que envio el servlet bajo el nombre
-	LISTADO -->
-	
-	<%// SCRIPTLET > ME PERMITE ESCRIBIR CODIGO JAVA
-		//DENTRO DE LA JSP TENGO UN OBJETO IMPLICITO LLAMADO REQUEST
+		<!-- 
+			quiero capturar el listado que envio el servlet bajo el nombre
+			LISTADO
+		-->
+		<% //SCRIPTLET > ESCRIBIR CODIGO JAVA
+			// dentro de las jsp tengo un "objeto implicito" llamado request
+ 			
+			//primero 
+			Object listadoObject = request.getAttribute("LISTADO");
 		
+			//puedo castear de Object a List<Articulos>
+			List<Articulos> listado = (List<Articulos>)listadoObject;
+		%>
 		
-		//PRIMERO CAPTURO
-		Object listadoObject = request.getAttribute("LISTADO");
-		// puedo castearlo de Object a List<Articulos>
-		List<Articulos> listado = (List<Articulos>)listadoObject;
-	%>
-	
-	
-	<%
-	//recorrer el listado e ir dibujando el codigo en un parrafo html
-	
-	for(Articulos art: listado){
-		
-		
-	%>
-		<!-- puedo escribir html puro y usar el objeto art -->
-		<p><%=art.getCodigo() %></p>
-	<%
-		}
-	%>
-	
+		<%
+			//recorrer el listado e ir dibujando el codigo en un parrafo html 
+			for(Articulos art : listado) {
+		%>
+			<!-- puedo poner html puro y usar el objeto art --> 
+			<p><%=art.getCodigo()%></p>
+		<%
+			}
+		%>
 	</body>
-
 </html>
