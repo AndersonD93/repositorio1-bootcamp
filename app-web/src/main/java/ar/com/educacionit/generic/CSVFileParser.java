@@ -93,6 +93,7 @@ public class CSVFileParser extends BaseFile implements IParser<Collection<Articu
 				fileReader = new FileReader(file);
 				br = new BufferedReader(fileReader);
 			}				
+			return this.buildArchivos(br);
 		}finally {
 			if(br != null) {
 				br.close();
@@ -100,7 +101,6 @@ public class CSVFileParser extends BaseFile implements IParser<Collection<Articu
 		}
 		
 		//lista vacia de articulos
-		return this.buildArchivos(br);
 	}
 
 	private Collection<Articulos> buildArchivos(BufferedReader br) throws IOException {
